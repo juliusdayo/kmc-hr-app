@@ -34,7 +34,7 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip"
 
-import { Search } from 'lucide-react';
+import {  Search } from 'lucide-react';
 
 import { ArrowLeft, FileUser, Share } from 'lucide-react';
 import { AddJobModal } from "./addJob"
@@ -46,10 +46,14 @@ import {
     TabsTrigger,
 } from "@/components/ui/tabs"
 import { Applicant } from "../applicants/applicant"
+import Loader from "../loaders/loader"
 
 export function JobPosting({ postings, setNav = () => {}, pathname = ""}) {
     const [currentJob, setCurrentJob] = useState({})
     const [matches, setMatches] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
+
+
     const fetchMatches = async (jobInfo) => {
         const response = await fetch('/api/applicant/match', {
             method: 'POST',
@@ -63,7 +67,7 @@ export function JobPosting({ postings, setNav = () => {}, pathname = ""}) {
         });
         const { data } = await response.json()
         setMatches(data)
-
+        setIsLoading(false)
     }
 
 
@@ -73,7 +77,7 @@ export function JobPosting({ postings, setNav = () => {}, pathname = ""}) {
             setCurrentJob(postings[0])
         }
         if (currentJob) {
-
+            setIsLoading(true)
             fetchMatches(currentJob)
         }
     }, [postings])
@@ -186,7 +190,8 @@ export function JobPosting({ postings, setNav = () => {}, pathname = ""}) {
                                 </TabsContent>
                                 <TabsContent value="talents" className="p-0 m-0 space-y-0">
                                     <Card>
-                                        <CardHeader className="border-b-2">
+                                    {isLoading ? <Loader/> :
+                                        <><CardHeader className="border-b-2">
                                             <CardTitle className="flex justify-between">
                                                 <TabsList>
                                                     <Button className="text-white bg-[#F99D3A] font-bold">
@@ -204,8 +209,9 @@ export function JobPosting({ postings, setNav = () => {}, pathname = ""}) {
                                                     </div>
                                                 ))}
                                             </div>
-                                        </CardContent>
+                                        </CardContent></>                                }
                                     </Card>
+
                                 </TabsContent>
                             </Tabs>
                         </div>
