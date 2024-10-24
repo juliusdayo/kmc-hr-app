@@ -26,15 +26,20 @@ export const applicant = [
 
 export const client = [
     {
-      name: "View Employee Ratings",
-      screen: "EmployeeRatings",
-      icon: Users2,
+        name: "Job Listings",
+        screen: "JobListings",
+        icon: BriefcaseBusiness,
     },
     {
-      name: "Personal Information",
-      screen: "Personal Information",
-      icon: UserCog,
-    }
+      name: "View Applicant Ratings",
+      screen: "ApplicantRatings",
+      icon: Users2,
+    },
+    // {
+    //     name: "Profile",
+    //     screen: "Profile",
+    //     icon: UserCog,
+    // }
 ];
 
 export const hiringManager = [
@@ -44,8 +49,8 @@ export const hiringManager = [
         icon: BriefcaseBusiness,
     },
     {
-      name: "View Employee Ratings",
-      screen: "EmployeeRatings",
+      name: "View Applicant Ratings",
+      screen: "ApplicantRatings",
       icon: Users2,
     },
     {
@@ -53,9 +58,9 @@ export const hiringManager = [
         screen: "MyCalendar",
         icon: BookCheck,
     },
-    {
-      name: "Personal Information",
-      screen: "PersonalInformation",
-      icon: UserCog,
-    }
+    // {
+    //     name: "Profile",
+    //     screen: "Profile",
+    //     icon: UserCog,
+    // }
 ];

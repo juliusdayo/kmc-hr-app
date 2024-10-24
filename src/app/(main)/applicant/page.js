@@ -10,7 +10,7 @@ import { useState } from "react";
 import Applications from "./(tabs)/applications/page";
 
 const Index = () => {
-    const [nav, setNav] = useState("Profile")
+    const [nav, setNav] = useState("JobListings")
 
     const handleNav = (screen) => {
         setNav(screen)
