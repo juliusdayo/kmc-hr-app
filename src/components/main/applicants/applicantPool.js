@@ -26,6 +26,7 @@ import {
   } from "@/components/ui/pagination"
 import { AIFinder } from "./aiFinder"
 import { Applicant } from "./applicant"
+import { Search } from "lucide-react"
 
 export function ApplicantPool() {
     return (
@@ -37,7 +38,11 @@ export function ApplicantPool() {
                         <CardDescription>Find the best talented people globally</CardDescription>
                     </div>
                     <div className="flex gap-4">
-                        <Input type="text" placeholder="Search" />
+                        <div className="flex flex-row items-center justify-center rounded-l-full bg-[#F1F1F1] pl-3 gap-3 border border-input" >
+                        <Search />
+                        <Input type="text" placeholder="Search" className="rounded-none" />
+                        </div>
+
                         <DialogTrigger asChild>
                             <Button>
                                  AI Finder

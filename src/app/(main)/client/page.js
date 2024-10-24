@@ -9,6 +9,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { client } from "@/constants";
 import { Menu } from 'lucide-react';
 import { useState, useEffect } from "react";
+import ApplicantProfileDynamic from "../applicant/[id]/page";
 
 const Index = () => {
     const [nav, setNav] = useState("JobListings")
@@ -17,13 +18,14 @@ const Index = () => {
         setNav(screen)
     }
 
-    const fetchApplicant = async () => {
+    const fetchJobs = async () => {
         const response = await fetch('/api/job')
         const { data } = await response.json()
         setPostings(data)
     }
+
     useEffect(() => {
-        fetchApplicant()
+        fetchJobs()
     }, [])
     return (
         <SidebarProvider className="w-full">
@@ -34,9 +36,10 @@ const Index = () => {
                         <SidebarTrigger><Menu /></SidebarTrigger>
                     </Header>
                     <div>
-                        {nav === "JobListings" ? <JobPosting postings={postings} /> :
+                        {nav === "JobListings" ? <JobPosting postings={postings} setNav={handleNav}/> :
                             nav === "ApplicantRatings" ? <ApplicantPool /> :
-                                nav === "Scheduling" ? <Schedule /> : null}
+                                nav === "Scheduling" ? <Schedule /> :
+                                    nav === "ApplicantProfile" ? <ApplicantProfileDynamic/> : null}
                     </div>
                 </div>
             </main>

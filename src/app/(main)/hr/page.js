@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 
 const Index = () => {
     const [nav, setNav] = useState("JobListings")
+    const [postings, setPostings] = useState([])
 
     const handleNav = (screen) => {
         setNav(screen)
@@ -23,8 +24,18 @@ const Index = () => {
     }
     useEffect(() => {
         fetchApplicant()
+    }, [])
+
+    const fetchJobs = async () => {
+        const response = await fetch('/api/job')
+        const { data } = await response.json()
+        setPostings(data)
     }
-        , [])
+
+    useEffect(() => {
+        fetchJobs()
+    }, [])
+
     return (
         <SidebarProvider className="w-full">
             <AppSidebar screens={hiringManager} setNav={handleNav} currentNav={nav}/>
@@ -34,7 +45,7 @@ const Index = () => {
                         <SidebarTrigger />
                     </Header>
                     <div>
-                        {nav === "JobListings" ? <JobPosting/> :
+                        {nav === "JobListings" ? <JobPosting  postings={postings}/> :
                          nav === "ApplicantRatings" ? <ApplicantPool/>:
                          nav === "Scheduling" ? <Schedule/>: null }
                     </div>

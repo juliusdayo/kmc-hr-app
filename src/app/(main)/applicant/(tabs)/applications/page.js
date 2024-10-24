@@ -37,6 +37,32 @@ const Applications = () => {
                                 </DialogTrigger>
                             </CardContent>
                         </Card>
+                        <Card className="flex justify-between items-center">
+                            <CardHeader className="bg-white">
+                                <CardTitle className="pt-3">Software Engineer Role</CardTitle>
+                                <CardDescription>For Interview</CardDescription>
+                            </CardHeader>
+                            <CardContent className="bg-white p-6 space-y-3">
+                                <DialogTrigger asChild>
+                                    <Button>
+                                        View Details
+                                    </Button>
+                                </DialogTrigger>
+                            </CardContent>
+                        </Card>
+                        <Card className="flex justify-between items-center">
+                            <CardHeader className="bg-white">
+                                <CardTitle className="pt-3">System Analyst Role</CardTitle>
+                                <CardDescription>Rejected</CardDescription>
+                            </CardHeader>
+                            <CardContent className="bg-white p-6 space-y-3">
+                                <DialogTrigger asChild>
+                                    <Button>
+                                        View Details
+                                    </Button>
+                                </DialogTrigger>
+                            </CardContent>
+                        </Card>
                     </div>
                 </CardContent>
             </Card>

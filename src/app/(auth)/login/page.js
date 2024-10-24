@@ -23,7 +23,7 @@ import {
 
 const Index = () => {
   return (
-    <div className="flex w-full h-lvh bg-blue-900 flex-col font-Inter text-center">
+    <div className="flex w-full h-lvh bg-[#1A202C] flex-col font-Inter text-center">
         <Card className="w-1/3 self-end h-lvh flex justify-center items-center flex-col radius ">
         <CardHeader>
           <div className=" font-bold text-3xl text-[#F99D3A]">KMC</div>
@@ -43,7 +43,7 @@ const Index = () => {
               </div>
               <div className="flex flex-col space-y-1.5">
 
-                <Select>
+                {/* <Select>
                   <SelectTrigger id="framework">
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
@@ -52,14 +52,14 @@ const Index = () => {
                     <SelectItem value="sveltekit">Candidate</SelectItem>
                     <SelectItem value="astro">Astro</SelectItem>
                   </SelectContent>
-                </Select>
+                </Select> */}
               </div>
             </div>
           </form>
         </CardContent>
         <CardFooter className="flex justify-between w-full px-10">
           <Button className="w-full text-white bg-[#F99D3A]">
-          <a href="/client">LOG IN</a></Button>
+          <a href="/applicant/onboarding">LOG IN</a></Button>
         </CardFooter>
       </Card>
     </div>

@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import { useState } from "react"
 import { AddScheduleModal } from "./addSchedule"
+import { Search } from "lucide-react"
 
 export function Schedule() {
     const [date, setDate] = useState(new Date())
@@ -29,7 +30,11 @@ export function Schedule() {
                         <CardDescription>schedule an interview</CardDescription>
                     </div>
                     <div className="flex gap-4">
-                        <Input type="text" placeholder="Search" />
+                        <div className="flex flex-row items-center justify-center rounded-l-full bg-[#F1F1F1] pl-3 gap-3 border border-input" >
+                        <Search />
+                        <Input type="text" placeholder="Search" className="rounded-none" />
+                        </div>
+
                         <DialogTrigger asChild>
                             <Button>
                                  Add new Schedule
@@ -42,7 +47,7 @@ export function Schedule() {
                         mode="single"
                         selected={date}
                         onSelect={setDate}
-                        className="rounded-md border"
+                         className="rounded-md border p-12 w-full h-auto text-xl"
                     />
                 </CardContent>
             </Card>

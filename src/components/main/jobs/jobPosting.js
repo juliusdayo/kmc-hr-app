@@ -4,7 +4,7 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter, 
+    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -47,7 +47,7 @@ import {
 } from "@/components/ui/tabs"
 import { Applicant } from "../applicants/applicant"
 
-export function JobPosting({ postings }) {
+export function JobPosting({ postings, setNav = () => {}, pathname = ""}) {
     const [currentJob, setCurrentJob] = useState({})
     const [matches, setMatches] = useState([])
     const fetchMatches = async (jobInfo) => {
@@ -91,17 +91,16 @@ export function JobPosting({ postings }) {
                         <Search />
                         <Input type="text" placeholder="Search" className="rounded-none" />
                         </div>
-                        
-                        <DialogTrigger asChild>
+                        {pathname !== "/applicant" && <DialogTrigger asChild>
                             <Button>
                                 Create Job Listing
                             </Button>
-                        </DialogTrigger>
+                        </DialogTrigger>}
                     </div>
                 </CardHeader>
                 <CardContent>
                     <div className="bg-gray-50 grid grid-cols-[450px_1fr] gap-3">
-                        <ScrollArea className="rounded-md border p-4">
+                        <ScrollArea className="rounded-md border p-4 h-[540px]">
                             {Array.isArray(postings) && postings.map((posting, index) => (
                                 <div key={`${posting.title}${index}`} onClick={() => setCurrentJob(posting)} className={`cursor-pointer mb-4 border ${currentJob == posting && " rounded-lg border-[#F99D3A] bg-[#F99D3A] bg-opacity-90"}`}>
                                     <Job posting={posting} />
@@ -132,12 +131,14 @@ export function JobPosting({ postings }) {
                                                         </Tooltip>
                                                     </TooltipProvider>
                                                     <TabsList>
+                                                    {pathname !== "/applicant" &&
                                                         <Button className="text-white bg-[#F99D3A] font-bold">
                                                             <TabsTrigger value="talents" className="bg-transparent" asChild>
                                                                 <div>
                                                                     <FileUser />  VIEW TALENTS
                                                                 </div></TabsTrigger>
                                                         </Button>
+                                                    }
                                                     </TabsList>
                                                 </div>
                                             </CardTitle>
@@ -196,9 +197,11 @@ export function JobPosting({ postings }) {
                                             </CardTitle>
                                         </CardHeader>
                                         <CardContent className="p-7 h-[450px] overflow-auto">
-                                            <div className="grid grid-cols-3 gap-3">
+                                            <div className="grid grid-cols-4 gap-3">
                                                 {Array.isArray(matches) && matches.map((applicant, index) => (
-                                                    <Applicant key={`${applicant.id}${index}`} applicant={applicant} />
+                                                    <div key={`${applicant.id}${index}`} onClick={() => setNav("ApplicantProfile")}>
+                                                        <Applicant applicant={applicant} />
+                                                    </div>
                                                 ))}
                                             </div>
                                         </CardContent>

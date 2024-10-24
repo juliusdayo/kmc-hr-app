@@ -17,13 +17,14 @@ import { Button } from "@/components/ui/button"
 import { StarRating } from "@/components/ui/star-rating"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { RateApplicantModal } from "../../components/rateApplicant";
 import { User } from 'lucide-react';
 import { useState } from "react";
+import { RateApplicantModal } from "../components/rateApplicant";
 
-const ApplicantProfile = () => {
+const ApplicantProfileDynamic = () => {
     const [rating, setRating] = useState(3);
     return (
+
         <Dialog>
             <Card className="overflow-hidden">
                 <div className="bg-orange-600 h-[200px]">
@@ -113,4 +114,4 @@ const ApplicantProfile = () => {
         </Dialog>
     );
 }
-export default ApplicantProfile;
+export default ApplicantProfileDynamic;

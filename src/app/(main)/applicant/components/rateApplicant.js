@@ -10,8 +10,10 @@ import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { StarRating } from "@/components/ui/star-rating"
 import { Separator } from "@/components/ui/separator"
+import { useState } from "react"
 
 export function RateApplicantModal() {
+    const [rating, setRating] = useState(3);
     return (
         <DialogContent>
             <DialogHeader>
@@ -20,7 +22,7 @@ export function RateApplicantModal() {
             </DialogHeader>
             <div className="text-center py-4 space-y-4">
                 <Avatar className="w-[200px] h-[200px] mx-auto">
-                    <AvatarImage src="https://github.com/shadcn.png" />
+                    <AvatarImage src="https://i.pinimg.com/originals/40/2f/e4/402fe4473f1b29109259566ee004bf96.jpg" />
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <div>
@@ -42,12 +44,14 @@ export function RateApplicantModal() {
 
                 <div>
                     <h5>How would you rate communication between Juan?</h5>
-                    <StarRating value={3} setValue={3} iconProps={{ className: 'fill-yellow-500 stroke-yellow-500' }} />
+                    <div className="w-full justify-center flex">
+                        <StarRating value={rating} setValue={setRating} iconProps={{ className: 'fill-yellow-500 stroke-yellow-500' }} />
+                    </div>
                 </div>
             </div>
             <DialogFooter>
                 <DialogClose asChild>
-                    <Button type="submit">Skip</Button>
+                    <Button type="submit" variant="ghost">SKIP</Button>
                 </DialogClose>
             </DialogFooter>
         </DialogContent>

@@ -33,7 +33,7 @@ const Index = () => {
                     <h5>Tell us about the job you'd like to find. This information will help us better match you to prospective jobs.</h5>
                     <br></br>
                     <ToggleGroup type="multiple" className="flex flex-wrap justify-start">
-                        <ToggleGroupItem value="a" className="rounded-full border ">
+                        <ToggleGroupItem value="a" className="rounded-full border">
                             <Badge variant="outline" className="border-none">Junior Software Developer</Badge>
                         </ToggleGroupItem>
                         <ToggleGroupItem value="b" className="rounded-full border">
@@ -52,11 +52,12 @@ const Index = () => {
                 </div>
                 </CardContent>
                 <CardFooter className="flex justify-center ">
-                    <Button className="bg-[#F99D3A] rounded-full">LETS GO</Button>
+                    <a href="/applicant" >
+                    <Button className="bg-[#F99D3A] rounded-full">LETS GO</Button></a>
                 </CardFooter>
             </Card>
         </div>
-        
+
     );
 }
 export default Index;

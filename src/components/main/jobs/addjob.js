@@ -21,8 +21,8 @@ export function AddJobModal() {
     return (
         <DialogContent>
             <Tabs defaultValue="manual" className=" pt-2">
-                <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="manual">Manual</TabsTrigger>
+                <TabsList className="grid w-full grid-cols-2 bg-[#F99D3A]">
+                    <TabsTrigger value="manual" >Manual</TabsTrigger>
                     <TabsTrigger value="automated">AI</TabsTrigger>
                 </TabsList>
                 <TabsContent value="manual">
