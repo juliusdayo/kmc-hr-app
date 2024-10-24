@@ -106,7 +106,10 @@ export function JobPosting({ postings }) {
                                                     </TooltipProvider>
                                                     <TabsList>
                                                         <Button className="text-white bg-[#F99D3A] font-bold">
-                                                             <TabsTrigger value="talents" className="bg-transparent"><FileUser />  VIEW TALENTS</TabsTrigger>
+                                                             <TabsTrigger value="talents" className="bg-transparent" asChild>
+                                                             <div>
+                                                                <FileUser />  VIEW TALENTS
+                                                             </div></TabsTrigger>
                                                         </Button>
                                                     </TabsList>
                                                 </div>
@@ -159,7 +162,8 @@ export function JobPosting({ postings }) {
                                         <CardTitle className="flex justify-between">
                                         <TabsList>
                                             <Button className="text-white bg-[#F99D3A] font-bold">
-                                                <TabsTrigger value="description" className="bg-transparent"><ArrowLeft /></TabsTrigger>
+                                                <TabsTrigger value="description" className="bg-transparent" asChild>
+                                                <div><ArrowLeft /></div></TabsTrigger>
                                             </Button>
                                         </TabsList>
                                         </CardTitle>

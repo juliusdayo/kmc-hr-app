@@ -11,8 +11,10 @@ import {
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { StarRating } from "@/components/ui/star-rating"
+import { useState } from "react";
 
 export function Applicant() {
+    const [rating, setRating] = useState(3);
     return (
             <Card>
                 <CardHeader className="text-center">
@@ -23,7 +25,7 @@ export function Applicant() {
                     <CardTitle>Juan Dela Cruz</CardTitle>
                     <CardDescription>Full Stack Web Developer</CardDescription>
                     <small>Antipolo, Calabarzon Philippines</small>
-                    <StarRating value={3} setValue={3} iconProps={{ className: 'fill-yellow-500 stroke-yellow-500' }} />
+                    <StarRating value={rating} setValue={setRating} iconProps={{ className: 'fill-yellow-500 stroke-yellow-500' }} />
                 </CardHeader>
                 <CardContent>
                 </CardContent>
