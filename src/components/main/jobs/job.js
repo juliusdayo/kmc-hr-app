@@ -7,16 +7,23 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 
+import { Sun } from 'lucide-react';
+import { Moon } from 'lucide-react';
+import { MonitorSmartphone } from 'lucide-react';
+import { MapPin } from 'lucide-react';
+
 export function Job() {
     return (
-        <Card>
+        <Card className="my-4 text-[#757575]">
             <CardHeader>
-                <CardTitle className="text-base"> Developer</CardTitle>
+                <CardTitle className="text-xl" > Developer</CardTitle>
             </CardHeader>
-            <CardContent>
-                <p>Night Shift</p>
-                <p>Onsite</p>
-                <p>Taguig, Philippines</p>
+            <CardContent className="flex flex-col font-bold  gap-3">
+                <div className="flex flex-row w-full gap-8"><Sun /> <p>Night Shift</p></div>
+                <div className="flex flex-row gap-8"><MonitorSmartphone/> <p>Onsite</p></div>
+                <div className="flex flex-row gap-8"><MapPin/> <p>Taguig, Philippines</p></div>
+                <div className="flex flex-row justify-end "><p>10 hours ago</p></div>
+                
             </CardContent>
             <CardFooter>
                 {/* <p>Card Footer</p> */}
