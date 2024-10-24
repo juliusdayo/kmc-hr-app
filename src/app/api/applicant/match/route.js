@@ -18,7 +18,7 @@ export async function POST(req) {
 
 
         const prompt = `Rank the skills of the applicants base on the job title ${data.jobTitle} with this description ${data.description},
-        
+        They should be rank on how close they are to the job description,
         only return an array of object in this format
         [
             {

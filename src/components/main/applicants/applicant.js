@@ -24,8 +24,9 @@ export function Applicant({ applicant }) {
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <CardTitle>{applicant.name}</CardTitle>
-                <CardDescription>Full Stack Web Developer</CardDescription>
+                <CardDescription>{applicant.jobTitle}</CardDescription>
                 <small>Antipolo, Calabarzon Philippines</small>
+                <p>{applicant.reason}</p>
                 <StarRating value={rating} setValue={setRating} iconProps={{ className: 'fill-yellow-500 stroke-yellow-500' }} />
             </CardHeader>
             <CardContent>
