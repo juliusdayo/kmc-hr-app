@@ -25,7 +25,7 @@ import {
     PaginationLink,
     PaginationNext,
     PaginationPrevious,
-  } from "@/components/ui/pagination"
+} from "@/components/ui/pagination"
 
 import {
     Tooltip,
@@ -37,7 +37,8 @@ import {
 import { FileUser, Share } from 'lucide-react';
 import { AddJobModal } from "./addJob"
 
-export function JobPosting() {
+export function JobPosting({ postings }) {
+    console.log(postings)
     return (
         <Dialog>
             <Card>
@@ -58,10 +59,11 @@ export function JobPosting() {
                 <CardContent>
                     <div className="bg-gray-50 grid grid-cols-[350px_1fr] gap-3">
                         <ScrollArea className="h-[500px] rounded-md border p-4 gap-4">
-                            <Job />
-                            <Job />
-                            <Job />
-                            <Job />
+                            {Array.isArray(postings) && postings.map((posting) => (
+                                <Job key={posting.email} posting={posting} />
+                            ))}
+
+
                         </ScrollArea>
                         <div className="w-full">
                             <Card className="h-full">
