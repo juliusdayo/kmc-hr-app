@@ -13,8 +13,13 @@ export const applicant = [
         icon: BriefcaseBusiness,
     },
     {
-        name: "Personal Information",
-        screen: "Personal Information",
+        name: "Applications",
+        screen: "Applications",
+        icon: BookCheck,
+    },
+    {
+        name: "Profile",
+        screen: "Profile",
         icon: UserCog,
     }
 ];
@@ -35,26 +40,22 @@ export const client = [
 export const hiringManager = [
     {
         name: "Job Listings",
-        url: "job-listings",
         screen: "JobListings",
         icon: BriefcaseBusiness,
     },
     {
       name: "View Employee Ratings",
-      url: "job-listings",
       screen: "EmployeeRatings",
       icon: Users2,
     },
     {
         name: "Scheduling",
-        url: "job-listings",
         screen: "MyCalendar",
         icon: BookCheck,
     },
     {
       name: "Personal Information",
-      url: "job-listings",
-      screen: "Personal Information",
+      screen: "PersonalInformation",
       icon: UserCog,
     }
 ];
