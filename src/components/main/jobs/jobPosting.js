@@ -37,11 +37,17 @@ import {
 import { FileUser, Share } from 'lucide-react';
 import { AddJobModal } from "./addJob"
 import { Toggle } from "@/components/ui/toggle"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export function JobPosting({ postings }) {
     console.log(postings)
     const [currentJob, setCurrentJob] = useState({})
+
+    useEffect(() => {
+        if(postings){
+            setCurrentJob(postings[0])
+        }
+    }, [postings])
 
     return (
         <Dialog>
@@ -96,7 +102,7 @@ export function JobPosting({ postings }) {
                                         </div>
                                     </CardTitle>
                                 </CardHeader>
-                                <CardContent className="p-10 h-[500px] overflow-auto">
+                                <CardContent className="p-7 h-[400px] overflow-auto">
                                     <h2 className="text-xl font-semibold mt-4 mb-2">Job Summary:</h2>
                                     <p className="text-gray-600 mb-4">
                                     {currentJob?.description}
