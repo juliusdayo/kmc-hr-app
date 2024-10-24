@@ -3,6 +3,8 @@ import { initializeDb } from '../../util/db';
 import { v4 as uuidv4 } from 'uuid';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
+const API_KEY = 'AIzaSyDwijivWjll9Yrh6ZyydiRrASJ6OW7oBr8'
+
 export async function POST(req, res) {
     const dbname = "applicant"
     const db = initializeDb()
@@ -10,8 +12,6 @@ export async function POST(req, res) {
     const formData = await req.formData()
     const file = formData.get("file")
     const buffer = Buffer.from(await file.arrayBuffer())
-
-    const API_KEY = 'AIzaSyDwijivWjll9Yrh6ZyydiRrASJ6OW7oBr8'
     
     const genAI = new GoogleGenerativeAI(API_KEY)
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
