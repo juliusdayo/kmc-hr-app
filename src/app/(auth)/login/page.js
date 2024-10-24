@@ -23,43 +23,46 @@ import {
 
 const Index = () => {
   return (
-    <Card className="w-[350px]">
-      <CardHeader>
-        <CardTitle>Login</CardTitle>
-        <CardDescription>Deploy your new project in one-click.</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form>
-          <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" placeholder="email" />
+    <div className="flex w-full h-lvh bg-blue-900 flex-col font-Inter text-center">
+        <Card className="w-1/3 self-end h-lvh flex justify-center items-center flex-col radius ">
+        <CardHeader>
+          <div className=" font-bold text-3xl text-[#F99D3A]">KMC</div>
+          <CardTitle className="font-bold  text-2xl text-[#757575] " >Login to your account</CardTitle>
+          <CardDescription className=" font-semibold text-[#757575]" >Welcome back! select a method to login</CardDescription>
+        </CardHeader> 
+        <CardContent   className=" w-full p-10">
+          <form>
+            <div className="grid w-full items-center gap-6  ">
+              <div className="flex flex-col space-y-1.5">
+                
+                <Input id="name" placeholder="Email" />
+              </div>
+              <div className="flex flex-col space-y-1.5">
+                
+                <Input id="password" type="password" placeholder="Password" />
+              </div>
+              <div className="flex flex-col space-y-1.5">
+                
+                <Select>
+                  <SelectTrigger id="framework">
+                    <SelectValue placeholder="Select" />
+                  </SelectTrigger>
+                  <SelectContent position="popper">
+                    <SelectItem value="next">Client</SelectItem>
+                    <SelectItem value="sveltekit">Candidate</SelectItem>
+                    <SelectItem value="astro">Astro</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="framework">Password</Label>
-              <Input id="name" placeholder="Name of your project" />
-            </div>
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="framework">Role</Label>
-              <Select>
-                <SelectTrigger id="framework">
-                  <SelectValue placeholder="Select" />
-                </SelectTrigger>
-                <SelectContent position="popper">
-                  <SelectItem value="next">Next.js</SelectItem>
-                  <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                  <SelectItem value="astro">Astro</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-        </form>
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button variant="outline">Cancel</Button>
-        <Button>Deploy</Button>
-      </CardFooter>
-    </Card>
+          </form>
+        </CardContent>
+        <CardFooter className="flex justify-between w-full px-10">
+          <Button className="w-full text-white bg-[#F99D3A]" >Deploy</Button>
+        </CardFooter>
+      </Card>
+    </div>
+    
   )
 }
 export default Index;

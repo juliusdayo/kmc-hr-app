@@ -8,11 +8,14 @@ import {
     AvatarImage,
   } from "@/components/ui/avatar"
 
+  import { Menu } from 'lucide-react';
+
   export function Header({children}) {
     return (
-        <Card className="w-full">
-            <CardContent className="flex items-center justify-between">
+        <Card className="p-3">
+            <CardContent className="p-0  flex justify-between items-center">
                 {children}
+                <Menu />
                 <Avatar>
                     <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
                     <AvatarFallback>CN</AvatarFallback>

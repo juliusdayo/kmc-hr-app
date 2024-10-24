@@ -3,7 +3,7 @@ import { AppSidebar } from "@/components/layout/sidebar";
 import { JobPosting } from "@/components/main/jobs/jobPosting";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { hiringManager } from "@/constants";
-
+import { Menu } from 'lucide-react';
 const Index = () => {
     return (
         <SidebarProvider>
@@ -11,7 +11,7 @@ const Index = () => {
             <main className="w-full">
                 <div className="p-8 w-full space-y-5">
                     <Header>
-                        <SidebarTrigger />
+                        <SidebarTrigger><Menu /></SidebarTrigger>
                     </Header>
                     <JobPosting/>
                 </div>
