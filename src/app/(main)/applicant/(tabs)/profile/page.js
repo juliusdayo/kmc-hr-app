@@ -22,7 +22,7 @@ import { RateApplicantModal } from "../../components/rateApplicant";
 const ApplicantProfile = () => {
     return (
         <Dialog>
-            <Card>
+            <Card className="overflow-hidden">
                 <div className="bg-orange-600 h-[200px]">
                 </div>
                 <div className="grid grid-cols-[300px_1fr] bg-gray-100 gap-4 pb-4">
