@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/layout/header";
 import { AppSidebar } from "@/components/layout/sidebar";
+import { ApplicantPool } from "@/components/main/applicants/applicantPool";
 import { JobPosting } from "@/components/main/jobs/jobPosting";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { hiringManager } from "@/constants";
@@ -22,7 +23,8 @@ const Index = () => {
                         <SidebarTrigger />
                     </Header>
                     <div>
-                        {nav === "JobListings" ? <JobPosting/> : null }
+                        {nav === "JobListings" ? <JobPosting/> :
+                         nav === "ApplicantRatings" ? <ApplicantPool/>: null }
                     </div>
                 </div>
             </main>
