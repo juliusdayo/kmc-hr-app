@@ -27,7 +27,7 @@ const Index = () => {
     }, [])
     return (
         <SidebarProvider className="w-full">
-            <AppSidebar screens={client} setNav={handleNav} />
+            <AppSidebar screens={client} setNav={handleNav} currentNav={nav}/>
             <main className="w-full">
                 <div className="p-8 w-full space-y-5">
                     <Header>
