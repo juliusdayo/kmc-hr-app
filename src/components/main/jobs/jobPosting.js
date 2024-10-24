@@ -7,11 +7,11 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-  } from "@/components/ui/card"
-  import {
+} from "@/components/ui/card"
+import {
     Dialog,
     DialogTrigger,
-  } from "@/components/ui/dialog"
+} from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -25,16 +25,16 @@ import {
     PaginationLink,
     PaginationNext,
     PaginationPrevious,
-  } from "@/components/ui/pagination"
+} from "@/components/ui/pagination"
 
-  import {
+import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-  } from "@/components/ui/tooltip"
+} from "@/components/ui/tooltip"
 
-  import { FileUser, Share } from 'lucide-react';
+import { FileUser, Share } from 'lucide-react';
 
 export function JobPosting() {
     return (
@@ -49,7 +49,7 @@ export function JobPosting() {
                         <Input type="text" placeholder="Search" />
                         <DialogTrigger asChild>
                             <Button>
-                              Create Job Listing
+                                Create Job Listing
                             </Button>
                         </DialogTrigger>
                     </div>
@@ -57,19 +57,19 @@ export function JobPosting() {
                 <CardContent>
                     <div className="bg-gray-50 grid grid-cols-[350px_1fr] gap-3">
                         <ScrollArea className="h-[500px] rounded-md border p-4 gap-4">
-                            <Job/>
-                            <Job/>
-                            <Job/>
-                            <Job/>
+                            <Job />
+                            <Job />
+                            <Job />
+                            <Job />
                         </ScrollArea>
                         <div className="w-full">
                             <Card className="h-full">
                                 <CardHeader className="border-b-2">
                                     <CardTitle className="flex justify-between">
                                         <div>
-                                            <p className="text-xl uppercase ">DEVELOPER</p> 
+                                            <p className="text-xl uppercase ">DEVELOPER</p>
                                             <p className="text-sm uppercase font-medium"> int-ABC123</p>
-                                        </div> 
+                                        </div>
                                         <div className="flex gap-4">
                                             <TooltipProvider>
                                                 <Tooltip>
@@ -85,18 +85,18 @@ export function JobPosting() {
                                             </TooltipProvider>
                                             <Button className="bg-[#F99D3A] font-bold">
                                                 <FileUser />  VIEW APPLICANTS
-                                            </Button>         
+                                            </Button>
                                         </div>
                                     </CardTitle>
-                                </CardHeader>   
+                                </CardHeader>
                                 <CardContent className="p-10 h-[500px] overflow-auto">
-                                    <h2 class="text-xl font-semibold mt-4 mb-2">Job Summary:</h2>
-                                    <p class="text-gray-600 mb-4">
+                                    <h2 className="text-xl font-semibold mt-4 mb-2">Job Summary:</h2>
+                                    <p className="text-gray-600 mb-4">
                                         We are seeking a [insert job title] to join our team. In this role, you will be responsible for [insert key responsibilities, e.g., developing strategies, managing projects, or supporting the team]. The ideal candidate will have a strong background in [insert relevant skills or experience], along with excellent [insert key qualities, e.g., communication, problem-solving] skills.
                                     </p>
-                                    
-                                    <h2 class="text-xl font-semibold mt-4 mb-2">Key Responsibilities:</h2>
-                                    <ul class="list-disc list-inside mb-4">
+
+                                    <h2 className="text-xl font-semibold mt-4 mb-2">Key Responsibilities:</h2>
+                                    <ul className="list-disc list-inside mb-4">
                                         <li>Collaborate with [insert teams or departments] to achieve [insert goals].</li>
                                         <li>Manage and oversee [insert specific tasks or projects].</li>
                                         <li>Assist in the development of [insert initiatives or strategies].</li>
@@ -104,8 +104,8 @@ export function JobPosting() {
                                         <li>Ensure compliance with [insert relevant regulations or policies].</li>
                                     </ul>
 
-                                    <h2 class="text-xl font-semibold mt-4 mb-2">Qualifications:</h2>
-                                    <ul class="list-disc list-inside mb-4">
+                                    <h2 className="text-xl font-semibold mt-4 mb-2">Qualifications:</h2>
+                                    <ul className="list-disc list-inside mb-4">
                                         <li>Bachelor’s degree in [insert relevant field] or equivalent experience.</li>
                                         <li>[Insert number] years of experience in [insert relevant experience].</li>
                                         <li>Strong knowledge of [insert relevant tools, technologies, or practices].</li>
@@ -113,15 +113,15 @@ export function JobPosting() {
                                         <li>Ability to work independently and as part of a team.</li>
                                     </ul>
 
-                                    <h2 class="text-xl font-semibold mt-4 mb-2">Benefits:</h2>
-                                    <ul class="list-disc list-inside mb-4">
+                                    <h2 className="text-xl font-semibold mt-4 mb-2">Benefits:</h2>
+                                    <ul className="list-disc list-inside mb-4">
                                         <li>Competitive salary and performance-based incentives.</li>
                                         <li>Health, dental, and vision insurance.</li>
                                         <li>[Insert additional benefits, e.g., retirement plans, paid time off, professional development opportunities].</li>
                                     </ul>
 
-                                    <h2 class="text-xl font-semibold mt-4 mb-2">How to Apply:</h2>
-                                    <p class="text-gray-600 mb-4">
+                                    <h2 className="text-xl font-semibold mt-4 mb-2">How to Apply:</h2>
+                                    <p className="text-gray-600 mb-4">
                                         If you are interested in this position, please submit your resume and a cover letter outlining your qualifications to [insert application instructions or email address].
                                     </p>
                                 </CardContent>
@@ -136,22 +136,22 @@ export function JobPosting() {
                     <Pagination>
                         <PaginationContent>
                             <PaginationItem>
-                            <PaginationPrevious href="#" />
+                                <PaginationPrevious href="#" />
                             </PaginationItem>
                             <PaginationItem>
-                            <PaginationLink href="#">1</PaginationLink>
+                                <PaginationLink href="#">1</PaginationLink>
                             </PaginationItem>
                             <PaginationItem>
-                            <PaginationEllipsis />
+                                <PaginationEllipsis />
                             </PaginationItem>
                             <PaginationItem>
-                            <PaginationNext href="#" />
+                                <PaginationNext href="#" />
                             </PaginationItem>
                         </PaginationContent>
                     </Pagination>
                 </CardFooter>
             </Card>
-            <AddJobModal/>
+            <AddJobModal />
         </Dialog>
     )
-  }
+}
