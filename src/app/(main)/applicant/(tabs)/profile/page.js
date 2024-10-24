@@ -18,6 +18,7 @@ import { StarRating } from "@/components/ui/star-rating"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { RateApplicantModal } from "../../components/rateApplicant";
+import { User } from 'lucide-react';
 
 const ApplicantProfile = () => {
     return (
@@ -31,27 +32,40 @@ const ApplicantProfile = () => {
                             <AvatarImage src="https://github.com/shadcn.png" />
                             <AvatarFallback>CN</AvatarFallback>
                         </Avatar>
-                        <CardTitle className="pt-3">Juan Dela Cruz</CardTitle>
-                        <CardDescription>Full Stack Developer</CardDescription>
-                        <small>Antipolo, Calabarzon</small>
-                        <StarRating value={3} setValue={3} iconProps={{ className: 'fill-yellow-500 stroke-yellow-500' }} />
+                        <CardTitle className="pt-3 uppercase mx-auto text-[#4F4F4F]">Juan Dela Cruz</CardTitle>
+                        <CardDescription className="uppercase mx-auto text-lg font-bold text-[#4F4F4F]">Full Stack Developer</CardDescription>
+                        <small className="uppercase font-bold mx-auto">Antipolo, Calabarzon</small>
+                        <div className="w-full justify-center flex">
+                            <p className="text-6xl">4.7</p>
+                        </div>
+                        <div className="w-full justify-center flex">
+                            <StarRating value={3} setValue={3} iconProps={{ className: 'fill-yellow-500 stroke-yellow-500' }} />
+                        </div>
+                        <div className="w-full justify-center flex">
+                            
+                            <User />
+                            <div>
+                                56
+                                total
+                            </div>
+                        </div>
+                        
                         <DialogTrigger asChild>
-                                <Button>
+                                <Button className="bg-blue-500 hover:bg-[#1A202C]">
                                     Add a Review
                                 </Button>
                         </DialogTrigger>
-                        <div className="bg-gray-100 p-4 flex items-center gap-4">
-                            <p className="text-5xl">4.7</p>
+                        <div className="flex flex-col pt-3 items-center gap-2">
                             <div>
-                                <div className="flex items-center gap-2">
-                                    <span>Skills</span>
-                                    <StarRating value={3} setValue={3} iconProps={{ className: 'fill-yellow-500 stroke-yellow-500' }} />
+                                <div className="flex justify-between gap-2">
+                                    <span>Communication</span>
+                                    <StarRating value={5} setValue={3} iconProps={{ className: 'fill-yellow-500 stroke-yellow-500' }} />
                                 </div>
-                                <div className="flex items-center gap-2">
-                                    <span>Skills</span>
-                                    <StarRating value={3} setValue={3} iconProps={{ className: 'fill-yellow-500 stroke-yellow-500' }} />
+                                <div className="flex justify-between gap-2">
+                                    <span>Coordination</span>
+                                    <StarRating value={4} setValue={3} iconProps={{ className: 'fill-yellow-500 stroke-yellow-500' }} />
                                 </div>
-                                <div className="flex items-center gap-2">
+                                <div className="flex justify-between gap-2">
                                     <span>Skills</span>
                                     <StarRating value={3} setValue={3} iconProps={{ className: 'fill-yellow-500 stroke-yellow-500' }} />
                                 </div>

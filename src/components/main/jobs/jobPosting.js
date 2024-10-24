@@ -4,7 +4,7 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
+    CardFooter, 
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -33,6 +33,8 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
+
+import { Search } from 'lucide-react';
 
 import { ArrowLeft, FileUser, Share } from 'lucide-react';
 import { AddJobModal } from "./addJob"
@@ -85,7 +87,11 @@ export function JobPosting({ postings }) {
                         <CardDescription>Post a job to find a talent</CardDescription>
                     </div>
                     <div className="flex gap-4">
-                        <Input type="text" placeholder="Search" />
+                        <div className="flex flex-row items-center justify-center rounded-l-full bg-[#F1F1F1] pl-3 gap-3 border border-input" >
+                        <Search />
+                        <Input type="text" placeholder="Search" className="rounded-none" />
+                        </div>
+                        
                         <DialogTrigger asChild>
                             <Button>
                                 Create Job Listing
