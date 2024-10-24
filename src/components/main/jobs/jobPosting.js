@@ -34,10 +34,16 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip"
 
-import { FileUser, Share } from 'lucide-react';
+import { ArrowLeft, FileUser, Share } from 'lucide-react';
 import { AddJobModal } from "./addJob"
-import { Toggle } from "@/components/ui/toggle"
 import { useEffect, useState } from "react"
+import {
+    Tabs,
+    TabsContent,
+    TabsList,
+    TabsTrigger,
+  } from "@/components/ui/tabs"
+import { Applicant } from "../applicants/applicant"
 
 export function JobPosting({ postings }) {
     console.log(postings)
@@ -76,72 +82,99 @@ export function JobPosting({ postings }) {
                             ))}
                         </ScrollArea>
                         <div className="w-full">
-                            <Card className="h-full">
-                                <CardHeader className="border-b-2">
-                                    <CardTitle className="flex justify-between">
-                                        <div>
-                                            <p className="text-xl uppercase ">{currentJob?.title}</p>
-                                            <p className="text-sm uppercase font-medium">{currentJob?.shiftSchedule}</p>
-                                        </div>
-                                        <div className="flex gap-4">
-                                            <TooltipProvider>
-                                                <Tooltip>
-                                                    <TooltipTrigger asChild>
-                                                        <Button className="bg-white text-[#757575] font-bold border-[#d2d2d2] border-[0.5px]">
-                                                            <Share />
+                            <Tabs defaultValue="description">
+                                <TabsContent value="description" className="p-0 m-0 space-y-0">
+                                    <Card className="h-full">
+                                        <CardHeader className="border-b-2">
+                                            <CardTitle className="flex justify-between">
+                                                <div>
+                                                    <p className="text-xl uppercase ">{currentJob?.title}</p>
+                                                    <p className="text-sm uppercase font-medium">{currentJob?.shiftSchedule}</p>
+                                                </div>
+                                                <div className="flex gap-4">
+                                                    <TooltipProvider>
+                                                        <Tooltip>
+                                                            <TooltipTrigger asChild>
+                                                                <Button className="bg-white text-[#757575] font-bold border-[#d2d2d2] border-[0.5px]">
+                                                                    <Share />
+                                                                </Button>
+                                                            </TooltipTrigger>
+                                                            <TooltipContent>
+                                                                <p>SHARE</p>
+                                                            </TooltipContent>
+                                                        </Tooltip>
+                                                    </TooltipProvider>
+                                                    <TabsList>
+                                                        <Button className="text-white bg-[#F99D3A] font-bold">
+                                                             <TabsTrigger value="talents" className="bg-transparent"><FileUser />  VIEW TALENTS</TabsTrigger>
                                                         </Button>
-                                                    </TooltipTrigger>
-                                                    <TooltipContent>
-                                                        <p>SHARE</p>
-                                                    </TooltipContent>
-                                                </Tooltip>
-                                            </TooltipProvider>
-                                            <Button className="bg-[#F99D3A] font-bold">
-                                                <FileUser />  VIEW TALENTS
+                                                    </TabsList>
+                                                </div>
+                                            </CardTitle>
+                                        </CardHeader>
+                                        <CardContent className="p-7 h-[450px] overflow-auto">
+                                            <h2 className="text-xl font-semibold mt-4 mb-2">Job Summary:</h2>
+                                            <p className="text-gray-600 mb-4">
+                                            {currentJob?.description}
+                                            </p>
+
+                                            <h2 className="text-xl font-semibold mt-4 mb-2">Key Responsibilities:</h2>
+                                            <ul className="list-disc list-inside mb-4">
+                                                <li>Collaborate with [insert teams or departments] to achieve [insert goals].</li>
+                                                <li>Manage and oversee [insert specific tasks or projects].</li>
+                                                <li>Assist in the development of [insert initiatives or strategies].</li>
+                                                <li>Provide support and guidance to [insert relevant stakeholders].</li>
+                                                <li>Ensure compliance with [insert relevant regulations or policies].</li>
+                                            </ul>
+
+                                            <h2 className="text-xl font-semibold mt-4 mb-2">Qualifications:</h2>
+                                            <ul className="list-disc list-inside mb-4">
+                                                <li>Bachelor’s degree in [insert relevant field] or equivalent experience.</li>
+                                                <li>[Insert number] years of experience in [insert relevant experience].</li>
+                                                <li>Strong knowledge of [insert relevant tools, technologies, or practices].</li>
+                                                <li>Excellent interpersonal and communication skills.</li>
+                                                <li>Ability to work independently and as part of a team.</li>
+                                            </ul>
+
+                                            <h2 className="text-xl font-semibold mt-4 mb-2">Benefits:</h2>
+                                            <ul className="list-disc list-inside mb-4">
+                                                <li>Competitive salary and performance-based incentives.</li>
+                                                <li>Health, dental, and vision insurance.</li>
+                                                <li>[Insert additional benefits, e.g., retirement plans, paid time off, professional development opportunities].</li>
+                                            </ul>
+
+                                            <h2 className="text-xl font-semibold mt-4 mb-2">How to Apply:</h2>
+                                            <p className="text-gray-600 mb-4">
+                                                If you are interested in this position, please submit your resume and a cover letter outlining your qualifications to [insert application instructions or email address].
+                                            </p>
+                                        </CardContent>
+                                        <CardFooter>
+                                            {/* <p>Card Footer</p> */}
+                                        </CardFooter>
+                                    </Card>
+                                </TabsContent>
+                                <TabsContent value="talents" className="p-0 m-0 space-y-0">
+                                <Card>
+                                    <CardHeader className="border-b-2">
+                                        <CardTitle className="flex justify-between">
+                                        <TabsList>
+                                            <Button className="text-white bg-[#F99D3A] font-bold">
+                                                <TabsTrigger value="description" className="bg-transparent"><ArrowLeft /></TabsTrigger>
                                             </Button>
-                                        </div>
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent className="p-7 h-[400px] overflow-auto">
-                                    <h2 className="text-xl font-semibold mt-4 mb-2">Job Summary:</h2>
-                                    <p className="text-gray-600 mb-4">
-                                    {currentJob?.description}
-                                    </p>
-
-                                    <h2 className="text-xl font-semibold mt-4 mb-2">Key Responsibilities:</h2>
-                                    <ul className="list-disc list-inside mb-4">
-                                        <li>Collaborate with [insert teams or departments] to achieve [insert goals].</li>
-                                        <li>Manage and oversee [insert specific tasks or projects].</li>
-                                        <li>Assist in the development of [insert initiatives or strategies].</li>
-                                        <li>Provide support and guidance to [insert relevant stakeholders].</li>
-                                        <li>Ensure compliance with [insert relevant regulations or policies].</li>
-                                    </ul>
-
-                                    <h2 className="text-xl font-semibold mt-4 mb-2">Qualifications:</h2>
-                                    <ul className="list-disc list-inside mb-4">
-                                        <li>Bachelor’s degree in [insert relevant field] or equivalent experience.</li>
-                                        <li>[Insert number] years of experience in [insert relevant experience].</li>
-                                        <li>Strong knowledge of [insert relevant tools, technologies, or practices].</li>
-                                        <li>Excellent interpersonal and communication skills.</li>
-                                        <li>Ability to work independently and as part of a team.</li>
-                                    </ul>
-
-                                    <h2 className="text-xl font-semibold mt-4 mb-2">Benefits:</h2>
-                                    <ul className="list-disc list-inside mb-4">
-                                        <li>Competitive salary and performance-based incentives.</li>
-                                        <li>Health, dental, and vision insurance.</li>
-                                        <li>[Insert additional benefits, e.g., retirement plans, paid time off, professional development opportunities].</li>
-                                    </ul>
-
-                                    <h2 className="text-xl font-semibold mt-4 mb-2">How to Apply:</h2>
-                                    <p className="text-gray-600 mb-4">
-                                        If you are interested in this position, please submit your resume and a cover letter outlining your qualifications to [insert application instructions or email address].
-                                    </p>
-                                </CardContent>
-                                <CardFooter>
-                                    {/* <p>Card Footer</p> */}
-                                </CardFooter>
-                            </Card>
+                                        </TabsList>
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="p-7 h-[450px] overflow-auto">
+                                    <div className="grid grid-cols-3 gap-3">
+                                        <Applicant/>
+                                        <Applicant/>
+                                        <Applicant/>
+                                        <Applicant/>
+                                    </div>
+                                    </CardContent>
+                                </Card>
+                                </TabsContent>
+                            </Tabs>
                         </div>
                     </div>
                 </CardContent>

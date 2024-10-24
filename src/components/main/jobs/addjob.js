@@ -14,14 +14,7 @@ import {
     TabsList,
     TabsTrigger,
   } from "@/components/ui/tabs"
-  import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-  } from "@/components/ui/card"
+
   import { Textarea } from "@/components/ui/textarea"
 
 export function AddJobModal() {
@@ -109,7 +102,7 @@ export function AddJobModal() {
                         <Button type="submit">Generate</Button>
                     </DialogFooter>
                 </TabsContent>
-                </Tabs>
+            </Tabs>
         </DialogContent>
     )
   }
