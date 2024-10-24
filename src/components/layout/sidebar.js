@@ -11,8 +11,7 @@ import {
   } from "@/components/ui/sidebar"
 
 
-
-  export function AppSidebar({screens}) {
+  export function AppSidebar({screens, setNav}) {
     return (
       <Sidebar collapsible="icon" className="py-4">
         <SidebarContent>
@@ -21,12 +20,13 @@ import {
             <SidebarGroupContent className="pt-14">
               <SidebarMenu className="gap-6">
                 {screens?.map((item) => (
-                  <SidebarMenuItem  key={item.name}>
+
+                  <SidebarMenuItem key={item.name} onClick={() => setNav(item.screen)}>
                     <SidebarMenuButton className=" rounded-l-lg font-Inter text-md font-bold tracking-widest " asChild>
-                      <a href={item.url}>
+                      <div>
                         <item.icon />
                         <span>{item.name}</span>
-                      </a>
+                      </div>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}

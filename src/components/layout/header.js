@@ -15,7 +15,7 @@ import {
         <Card className="p-3">
             <CardContent className="p-0  flex justify-between items-center">
                 {children}
-                <Menu />
+                
                 <Avatar>
                     <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
                     <AvatarFallback>CN</AvatarFallback>

@@ -39,9 +39,9 @@ export function JobPosting() {
                     <div className="flex gap-4">
                         <Input type="text" placeholder="Search" />
                         <DialogTrigger asChild>
-                               <Button>
+                            <Button>
                                  Create Job Listing
-                               </Button>
+                            </Button>
                         </DialogTrigger>
                     </div>
                 </CardHeader>
