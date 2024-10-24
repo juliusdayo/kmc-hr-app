@@ -9,7 +9,7 @@ const Index = () => {
             <main>
                 <SidebarTrigger />
                 <div className="p-8">
-                    Hiring Manager UI
+                    Client UI
                 </div>
             </main>
         </SidebarProvider>
