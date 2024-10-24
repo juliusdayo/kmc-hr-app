@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Job } from "./job"
-import { AddJobModal } from "./addjob"
+
 import {
     Pagination,
     PaginationContent,
@@ -26,6 +26,7 @@ import {
     PaginationNext,
     PaginationPrevious,
   } from "@/components/ui/pagination"
+import { AddJobModal } from "./addjob"
 
 export function JobPosting() {
     return (

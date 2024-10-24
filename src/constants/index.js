@@ -35,6 +35,11 @@ export const client = [
       screen: "ApplicantRatings",
       icon: Users2,
     },
+    {
+        name: "My Calendar",
+        screen: "Scheduling",
+        icon: BookCheck,
+    },
     // {
     //     name: "Profile",
     //     screen: "Profile",
@@ -54,8 +59,8 @@ export const hiringManager = [
       icon: Users2,
     },
     {
-        name: "Scheduling",
-        screen: "MyCalendar",
+        name: "My Calendar",
+        screen: "Scheduling",
         icon: BookCheck,
     },
     // {

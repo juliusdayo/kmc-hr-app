@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header";
 import { AppSidebar } from "@/components/layout/sidebar";
 import { ApplicantPool } from "@/components/main/applicants/applicantPool";
 import { JobPosting } from "@/components/main/jobs/jobPosting";
+import { Schedule } from "@/components/main/scheduling/schedule";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { client } from "@/constants";
 import { Menu } from 'lucide-react';import { useState } from "react";
@@ -24,7 +25,8 @@ const Index = () => {
                     </Header>
                     <div>
                         {nav === "JobListings" ? <JobPosting/>  :
-                         nav === "ApplicantRatings" ? <ApplicantPool/>: null }
+                         nav === "ApplicantRatings" ? <ApplicantPool/> :
+                         nav === "Scheduling" ? <Schedule/> : null }
                     </div>
                 </div>
             </main>
