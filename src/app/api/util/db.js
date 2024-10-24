@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, doc } from 'firebase/firestore/lite';
 // Follow this pattern to import other Firebase services
 // import { } from 'firebase/<service>';
 
@@ -14,7 +14,9 @@ const firebaseConfig = {
     measurementId: "G-K3S78YFT06"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+export const initializeDb = () => {
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    return db;
+}
 
-export default db;
