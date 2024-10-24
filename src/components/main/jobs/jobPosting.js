@@ -42,16 +42,37 @@ import {
     TabsContent,
     TabsList,
     TabsTrigger,
-  } from "@/components/ui/tabs"
+} from "@/components/ui/tabs"
 import { Applicant } from "../applicants/applicant"
 
 export function JobPosting({ postings }) {
-    console.log(postings)
     const [currentJob, setCurrentJob] = useState({})
+    const [matches, setMatches] = useState([])
+    const fetchMatches = async (jobInfo) => {
+        const response = await fetch('/api/applicant/match', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                jobTitle: jobInfo.title,
+                jobDescription: jobInfo.description
+            })
+        });
+        const { data } = await response.json()
+        setMatches(data)
+
+    }
+
+
 
     useEffect(() => {
-        if(postings){
+        if (postings) {
             setCurrentJob(postings[0])
+        }
+        if (currentJob) {
+
+            fetchMatches(currentJob)
         }
     }, [postings])
 
@@ -76,8 +97,8 @@ export function JobPosting({ postings }) {
                     <div className="bg-gray-50 grid grid-cols-[450px_1fr] gap-3">
                         <ScrollArea className="rounded-md border p-4">
                             {Array.isArray(postings) && postings.map((posting, index) => (
-                                <div key={`${posting.title}${index}`}  onClick={() => setCurrentJob(posting)} className={`cursor-pointer mb-4 border ${currentJob == posting && " rounded-lg border-[#F99D3A] bg-[#F99D3A] bg-opacity-90"}`}>
-                                    <Job posting={posting}/>
+                                <div key={`${posting.title}${index}`} onClick={() => setCurrentJob(posting)} className={`cursor-pointer mb-4 border ${currentJob == posting && " rounded-lg border-[#F99D3A] bg-[#F99D3A] bg-opacity-90"}`}>
+                                    <Job posting={posting} />
                                 </div>
                             ))}
                         </ScrollArea>
@@ -106,10 +127,10 @@ export function JobPosting({ postings }) {
                                                     </TooltipProvider>
                                                     <TabsList>
                                                         <Button className="text-white bg-[#F99D3A] font-bold">
-                                                             <TabsTrigger value="talents" className="bg-transparent" asChild>
-                                                             <div>
-                                                                <FileUser />  VIEW TALENTS
-                                                             </div></TabsTrigger>
+                                                            <TabsTrigger value="talents" className="bg-transparent" asChild>
+                                                                <div>
+                                                                    <FileUser />  VIEW TALENTS
+                                                                </div></TabsTrigger>
                                                         </Button>
                                                     </TabsList>
                                                 </div>
@@ -118,7 +139,7 @@ export function JobPosting({ postings }) {
                                         <CardContent className="p-7 h-[450px] overflow-auto">
                                             <h2 className="text-xl font-semibold mt-4 mb-2">Job Summary:</h2>
                                             <p className="text-gray-600 mb-4">
-                                            {currentJob?.description}
+                                                {currentJob?.description}
                                             </p>
 
                                             <h2 className="text-xl font-semibold mt-4 mb-2">Key Responsibilities:</h2>
@@ -157,26 +178,25 @@ export function JobPosting({ postings }) {
                                     </Card>
                                 </TabsContent>
                                 <TabsContent value="talents" className="p-0 m-0 space-y-0">
-                                <Card>
-                                    <CardHeader className="border-b-2">
-                                        <CardTitle className="flex justify-between">
-                                        <TabsList>
-                                            <Button className="text-white bg-[#F99D3A] font-bold">
-                                                <TabsTrigger value="description" className="bg-transparent" asChild>
-                                                <div><ArrowLeft /></div></TabsTrigger>
-                                            </Button>
-                                        </TabsList>
-                                        </CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="p-7 h-[450px] overflow-auto">
-                                    <div className="grid grid-cols-3 gap-3">
-                                        <Applicant/>
-                                        <Applicant/>
-                                        <Applicant/>
-                                        <Applicant/>
-                                    </div>
-                                    </CardContent>
-                                </Card>
+                                    <Card>
+                                        <CardHeader className="border-b-2">
+                                            <CardTitle className="flex justify-between">
+                                                <TabsList>
+                                                    <Button className="text-white bg-[#F99D3A] font-bold">
+                                                        <TabsTrigger value="description" className="bg-transparent" asChild>
+                                                            <div><ArrowLeft /></div></TabsTrigger>
+                                                    </Button>
+                                                </TabsList>
+                                            </CardTitle>
+                                        </CardHeader>
+                                        <CardContent className="p-7 h-[450px] overflow-auto">
+                                            <div className="grid grid-cols-3 gap-3">
+                                                {Array.isArray(matches) && matches.map((applicant, index) => (
+                                                    <Applicant key={`${applicant.id}${index}`} applicant={applicant} />
+                                                ))}
+                                            </div>
+                                        </CardContent>
+                                    </Card>
                                 </TabsContent>
                             </Tabs>
                         </div>

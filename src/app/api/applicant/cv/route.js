@@ -3,7 +3,7 @@ import { initializeDb } from '../../util/db';
 import { v4 as uuidv4 } from 'uuid';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const API_KEY = 'AIzaSyDwijivWjll9Yrh6ZyydiRrASJ6OW7oBr8'
+
 
 export async function POST(req, res) {
     const dbname = "applicant"
