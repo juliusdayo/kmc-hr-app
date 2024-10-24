@@ -17,7 +17,7 @@ import {
         <SidebarContent className="bg-[#1A202C] ">
           <SidebarGroup className="p-0 pt-6">
             <SidebarGroupLabel className="font-Inter text-2xl my-4 font-bold text-[#F99D3A]  justify-center">KMC</SidebarGroupLabel>
-            <SidebarGroupContent className="pt-14 ">
+            <SidebarGroupContent className="pt-10">
               <SidebarMenu className="gap-3 p-0 ">
 
                 {screens?.map((item) => (

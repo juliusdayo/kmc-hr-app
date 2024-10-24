@@ -36,9 +36,13 @@ import {
 
 import { FileUser, Share } from 'lucide-react';
 import { AddJobModal } from "./addJob"
+import { Toggle } from "@/components/ui/toggle"
+import { useState } from "react"
 
 export function JobPosting({ postings }) {
     console.log(postings)
+    const [currentJob, setCurrentJob] = useState({})
+
     return (
         <Dialog>
             <Card>
@@ -57,21 +61,21 @@ export function JobPosting({ postings }) {
                     </div>
                 </CardHeader>
                 <CardContent>
-                    <div className="bg-gray-50 grid grid-cols-[350px_1fr] gap-3">
-                        <ScrollArea className="h-[500px] rounded-md border p-4 gap-4">
+                    <div className="bg-gray-50 grid grid-cols-[450px_1fr] gap-3">
+                        <ScrollArea className="rounded-md border p-4">
                             {Array.isArray(postings) && postings.map((posting, index) => (
-                                <Job key={`${posting.title}${index}`} posting={posting} />
+                                <div key={`${posting.title}${index}`}  onClick={() => setCurrentJob(posting)} className={`cursor-pointer mb-4 border ${currentJob == posting && " rounded-lg border-[#F99D3A] bg-[#F99D3A] bg-opacity-90"}`}>
+                                    <Job posting={posting}/>
+                                </div>
                             ))}
-
-
                         </ScrollArea>
                         <div className="w-full">
                             <Card className="h-full">
                                 <CardHeader className="border-b-2">
                                     <CardTitle className="flex justify-between">
                                         <div>
-                                            <p className="text-xl uppercase ">DEVELOPER</p>
-                                            <p className="text-sm uppercase font-medium"> int-ABC123</p>
+                                            <p className="text-xl uppercase ">{currentJob?.title}</p>
+                                            <p className="text-sm uppercase font-medium">{currentJob?.shiftSchedule}</p>
                                         </div>
                                         <div className="flex gap-4">
                                             <TooltipProvider>
@@ -87,7 +91,7 @@ export function JobPosting({ postings }) {
                                                 </Tooltip>
                                             </TooltipProvider>
                                             <Button className="bg-[#F99D3A] font-bold">
-                                                <FileUser />  VIEW APPLICANTS
+                                                <FileUser />  VIEW TALENTS
                                             </Button>
                                         </div>
                                     </CardTitle>
@@ -95,7 +99,7 @@ export function JobPosting({ postings }) {
                                 <CardContent className="p-10 h-[500px] overflow-auto">
                                     <h2 className="text-xl font-semibold mt-4 mb-2">Job Summary:</h2>
                                     <p className="text-gray-600 mb-4">
-                                        We are seeking a [insert job title] to join our team. In this role, you will be responsible for [insert key responsibilities, e.g., developing strategies, managing projects, or supporting the team]. The ideal candidate will have a strong background in [insert relevant skills or experience], along with excellent [insert key qualities, e.g., communication, problem-solving] skills.
+                                    {currentJob?.description}
                                     </p>
 
                                     <h2 className="text-xl font-semibold mt-4 mb-2">Key Responsibilities:</h2>

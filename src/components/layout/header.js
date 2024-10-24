@@ -15,7 +15,7 @@ import {
                 {children}
 
                 <Avatar>
-                    <AvatarImage src="https://git hub.com/shadcn.png" alt="@shadcn" />
+                    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
             </CardContent>
