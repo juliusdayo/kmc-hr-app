@@ -17,7 +17,7 @@ const Index = () => {
     }
     return (
         <SidebarProvider>
-            <AppSidebar screens={applicant} setNav={handleNav}/>
+            <AppSidebar screens={applicant} setNav={handleNav}  currentNav={nav}/>
             <main className="w-full">
                 <div className="p-8 w-full space-y-5">
                     <Header>

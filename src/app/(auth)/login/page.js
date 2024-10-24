@@ -29,20 +29,20 @@ const Index = () => {
           <div className=" font-bold text-3xl text-[#F99D3A]">KMC</div>
           <CardTitle className="font-bold  text-2xl text-[#757575] " >Login to your account</CardTitle>
           <CardDescription className=" font-semibold text-[#757575]" >Welcome back! select a method to login</CardDescription>
-        </CardHeader> 
+        </CardHeader>
         <CardContent   className=" w-full p-10">
           <form>
             <div className="grid w-full items-center gap-6  ">
               <div className="flex flex-col space-y-1.5">
-                
+
                 <Input id="name" placeholder="Email" />
               </div>
               <div className="flex flex-col space-y-1.5">
-                
+
                 <Input id="password" type="password" placeholder="Password" />
               </div>
               <div className="flex flex-col space-y-1.5">
-                
+
                 <Select>
                   <SelectTrigger id="framework">
                     <SelectValue placeholder="Select" />
@@ -58,11 +58,12 @@ const Index = () => {
           </form>
         </CardContent>
         <CardFooter className="flex justify-between w-full px-10">
-          <Button className="w-full text-white bg-[#F99D3A]" >Deploy</Button>
+          <Button className="w-full text-white bg-[#F99D3A]">
+          <a href="/client">LOG IN</a></Button>
         </CardFooter>
       </Card>
     </div>
-    
+
   )
 }
 export default Index;
