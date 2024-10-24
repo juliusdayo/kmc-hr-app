@@ -18,7 +18,7 @@ export function Applicant({ applicant }) {
     const [rating, setRating] = useState(3);
     return (
         <Card>
-            <CardHeader className="text-center">
+            <CardHeader className="text-center flex justify-center items-center">
                 <Avatar className="w-[200px] h-[200px] mx-auto">
                     <AvatarImage src="https://github.com/shadcn.png" />
                     <AvatarFallback>CN</AvatarFallback>
