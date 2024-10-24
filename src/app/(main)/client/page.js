@@ -18,7 +18,7 @@ const Index = () => {
     }
 
     const fetchApplicant = async () => {
-        const response = await fetch('/api/applicant')
+        const response = await fetch('/api/job')
         const { data } = await response.json()
         setPostings(data)
     }

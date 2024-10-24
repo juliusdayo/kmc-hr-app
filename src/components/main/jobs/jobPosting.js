@@ -59,8 +59,8 @@ export function JobPosting({ postings }) {
                 <CardContent>
                     <div className="bg-gray-50 grid grid-cols-[350px_1fr] gap-3">
                         <ScrollArea className="h-[500px] rounded-md border p-4 gap-4">
-                            {Array.isArray(postings) && postings.map((posting) => (
-                                <Job key={posting.email} posting={posting} />
+                            {Array.isArray(postings) && postings.map((posting, index) => (
+                                <Job key={`${posting.title}${index}`} posting={posting} />
                             ))}
 
 

@@ -13,15 +13,15 @@ import { MonitorSmartphone } from 'lucide-react';
 import { MapPin } from 'lucide-react';
 
 export function Job({ posting }) {
-    const { total_years_of_experience, name, email_address } = posting
+    const { title, salaryRange, shiftSchedule } = posting
     return (
         <Card className="my-4 text-[#757575]">
             <CardHeader>
-                <CardTitle className="text-xl" > {name}</CardTitle>
+                <CardTitle className="text-xl" > {title}</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col font-bold  gap-3">
-                <div className="flex flex-row w-full gap-8"><Sun /> <p>{email_address}</p></div>
-                <div className="flex flex-row gap-8"><MonitorSmartphone /> <p>{total_years_of_experience}</p></div>
+                <div className="flex flex-row w-full gap-8"><Sun /> <p>{shiftSchedule}</p></div>
+                <div className="flex flex-row gap-8"><MonitorSmartphone /> <p>{salaryRange}</p></div>
                 <div className="flex flex-row gap-8"><MapPin /> <p>Taguig, Philippines</p></div>
                 <div className="flex flex-row justify-end "><p>10 hours ago</p></div>
 
