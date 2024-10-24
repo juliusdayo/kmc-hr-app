@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, doc } from 'firebase/firestore/lite';
 // Follow this pattern to import other Firebase services
 // import { } from 'firebase/<service>';
 
@@ -20,6 +20,6 @@ const db = getFirestore(app);
 
 export async function GET() {
     const applicantCollection = collection(db, 'test')
-    console.log(applicantCollection)
+    const data = doc
     return Response.json({ data: 'okay' })
 }
