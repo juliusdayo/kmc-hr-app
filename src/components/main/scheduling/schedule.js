@@ -43,12 +43,14 @@ export function Schedule() {
                     </div>
                 </CardHeader>
                 <CardContent>
+                <div className="flex justify-center">
                     <Calendar
                         mode="single"
                         selected={date}
                         onSelect={setDate}
-                         className="rounded-md border p-12 w-full h-auto text-xl"
+                         className="rounded-md border p-12 mx-auto h-auto text-xl"
                     />
+                </div>
                 </CardContent>
             </Card>
             <AddScheduleModal/>

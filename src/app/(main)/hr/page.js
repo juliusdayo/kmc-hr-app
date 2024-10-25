@@ -8,6 +8,7 @@ import { Schedule } from "@/components/main/scheduling/schedule";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { hiringManager } from "@/constants";
 import { useState, useEffect } from "react";
+import ApplicantProfileDynamic from "../applicant/[id]/page";
 
 const Index = () => {
     const [nav, setNav] = useState("JobListings")
@@ -45,9 +46,10 @@ const Index = () => {
                         <SidebarTrigger />
                     </Header>
                     <div>
-                        {nav === "JobListings" ? <JobPosting postings={postings} /> :
-                            nav === "ApplicantRatings" ? <ApplicantPool /> :
-                                nav === "Scheduling" ? <Schedule /> : null}
+                        {nav === "JobListings" ? <JobPosting  postings={postings} setNav={handleNav}/> :
+                         nav === "ApplicantRatings" ? <ApplicantPool/>:
+                         nav === "Scheduling" ? <Schedule/> :
+                         nav === "ApplicantProfile" ? <ApplicantProfileDynamic/> : null }
                     </div>
                 </div>
             </main>

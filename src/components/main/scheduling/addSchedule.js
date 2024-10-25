@@ -5,11 +5,12 @@ import {
     DialogTitle,
     DialogFooter
   } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
+import { Calendar } from "@/components/ui/calendar"
+import { useState } from "react"
 
 export function AddScheduleModal() {
+    const [date, setDate] = useState(new Date())
     return (
         <DialogContent>
             <DialogHeader>
@@ -18,22 +19,17 @@ export function AddScheduleModal() {
                     Make changes to your profile here. Click save when you&apos;re done.
                 </DialogDescription>
                 </DialogHeader>
-                <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="name" className="text-right">
-                    Sched
-                    </Label>
-                    <Input
-                    id="name"
-                    defaultValue="123"
-                    className="col-span-3"
+                <div className="flex justify-center">
+                    <Calendar
+                        mode="single"
+                        selected={date}
+                        onSelect={setDate}
+                         className="rounded-md border h-auto text-xl mx-auto"
                     />
                 </div>
-
-                </div>
                 <DialogFooter>
-                <Button type="submit">Add changes</Button>
-                </DialogFooter>
+            <Button type="submit">Add schedule</Button>
+            </DialogFooter>
         </DialogContent>
     )
   }
