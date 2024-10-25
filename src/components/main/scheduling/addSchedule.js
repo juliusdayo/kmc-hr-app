@@ -20,7 +20,7 @@ export function AddScheduleModal() {
                 </DialogDescription>
                 </DialogHeader>
                 <div className="flex justify-center">
-                <Calendar
+                    <Calendar
                         mode="single"
                         selected={date}
                         onSelect={setDate}

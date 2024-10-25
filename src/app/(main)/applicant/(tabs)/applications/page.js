@@ -27,7 +27,7 @@ const Applications = () => {
                         <Card className="flex justify-between items-center">
                             <CardHeader className="bg-white">
                                 <CardTitle className="pt-3">Fullstack Developer Role</CardTitle>
-                                <CardDescription>Pending</CardDescription>
+                                <CardDescription>For Interview</CardDescription>
                             </CardHeader>
                             <CardContent className="bg-white p-6 space-y-3">
                                 <DialogTrigger asChild>
@@ -53,7 +53,7 @@ const Applications = () => {
                         <Card className="flex justify-between items-center">
                             <CardHeader className="bg-white">
                                 <CardTitle className="pt-3">System Analyst Role</CardTitle>
-                                <CardDescription>Rejected</CardDescription>
+                                <CardDescription>For Interview</CardDescription>
                             </CardHeader>
                             <CardContent className="bg-white p-6 space-y-3">
                                 <DialogTrigger asChild>
