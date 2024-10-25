@@ -29,18 +29,18 @@ export function AddJobModal() {
         </div>
     );
     const [sections, setSections] = useState([]);
-
+    const [description, setDescription] = useState('');
     const handleRemove = (item) => {
         setSections(sections.filter(section => section !== item));
     };
-    const generateJob = async (description) => {
+    const generateJob = async () => {
         const response = await fetch('/api/job/categorize',
             {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ message: 'I want someone who can make me a website for my clothing store' })
+                body: JSON.stringify({ message: description })
             }
         )
         const { data } = await response.json()
@@ -124,13 +124,14 @@ export function AddJobModal() {
                                 placeholder="eg: Software Developer"
                             />
                         </div>
-                        <div className="space-y-2">asdasd
+                        <div className="space-y-2">
                             <Label htmlFor="username" className="text-right">
-                                Sections needed:
+                                Describe your requirements:
                             </Label>
                             <Input
                                 id="username"
                                 placeholder="eg: Job Description, Responsibilities"
+                                onChange={(e) => setDescription(e.target.value)}
                             />
                             {Array.isArray(sections) && sections.map((section, index) => (
                                 <ListItem key={index} item={section} onRemove={handleRemove} />
