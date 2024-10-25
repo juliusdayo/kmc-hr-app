@@ -37,7 +37,6 @@ import {
 import { Search } from 'lucide-react';
 
 import { ArrowLeft, FileUser, Share } from 'lucide-react';
-import { AddJobModal } from "./addJob"
 import { useEffect, useState } from "react"
 import {
     Tabs,
@@ -47,6 +46,7 @@ import {
 } from "@/components/ui/tabs"
 import { Applicant } from "../applicants/applicant"
 import Loader from "../loaders/loader"
+import { AddJobModal } from "./addjob"
 
 export function JobPosting({ postings, setNav = () => { }, pathname = "" }) {
     const [currentJob, setCurrentJob] = useState({})
@@ -138,14 +138,21 @@ export function JobPosting({ postings, setNav = () => { }, pathname = "" }) {
                                                         </Tooltip>
                                                     </TooltipProvider>
                                                     <TabsList>
-                                                        {pathname !== "/applicant" &&
+                                                        {pathname !== "/applicant" ?
                                                             <Button className="text-white bg-[#F99D3A] font-bold">
                                                                 <TabsTrigger value="talents" className="bg-transparent" asChild>
                                                                     <div>
                                                                         <FileUser />  VIEW TALENTS
                                                                     </div></TabsTrigger>
+                                                            </Button> :
+                                                            <Button className="text-white bg-[#F99D3A] font-bold">
+                                                                <TabsTrigger value="talents" className="bg-transparent" asChild>
+                                                                    <div>
+                                                                        APPLY
+                                                                    </div></TabsTrigger>
                                                             </Button>
                                                         }
+
                                                     </TabsList>
                                                 </div>
                                             </CardTitle>
