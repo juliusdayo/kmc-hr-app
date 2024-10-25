@@ -1,4 +1,4 @@
-import { doc, setDoc } from 'firebase/firestore/lite';
+import { arrayUnion, doc, setDoc, updateDoc } from 'firebase/firestore/lite';
 import { initializeDb } from '../../util/db';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -17,10 +17,14 @@ export async function POST(req, res) {
         salaryRange,
         shiftSchedule,
         workSetup,
-        clientId: clientIdRef
     }
 
-    await setDoc(doc(db, dbname, uuidv4()), postingDoc);
+    const refId = uuidv4()
+    await setDoc(doc(db, dbname, refId), postingDoc)
+
+    await updateDoc(clientIdRef, {
+        jobposts: arrayUnion(doc(db, dbname, refId))
+    })
 
     return Response.json({data: 'ok'})
 }
