@@ -20,9 +20,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { User } from 'lucide-react';
 import { useState } from "react";
 import { RateApplicantModal } from "../components/rateApplicant";
+import { usePathname } from "next/navigation";
 
 const ApplicantProfileDynamic = () => {
     const [rating, setRating] = useState(3);
+    const pathname = usePathname()
+
     return (
 
         <Dialog>
@@ -56,10 +59,16 @@ const ApplicantProfileDynamic = () => {
                         </div>
 
                         <DialogTrigger asChild>
-                                <Button className="text-blue-500 my-3" variant="link">
-                                    Add a Review
-                                </Button>
+                            <Button className="text-blue-500 my-3" variant="link">
+                                Add a Review
+                            </Button>
                         </DialogTrigger>
+                        <Button className="text-blue-500 my-3" variant="link">
+                            Invite to an interview
+                        </Button>
+                        {pathname == "/hr" && <Button className="text-blue-500 my-3" variant="link">
+                            Endorse to client
+                        </Button>}
                         <div className="flex flex-col pt-3 items-center gap-2">
                             <div>
                                 <div className="flex justify-between gap-2">

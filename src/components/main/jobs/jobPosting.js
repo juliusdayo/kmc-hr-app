@@ -53,7 +53,6 @@ export function JobPosting({ postings, setNav = () => { }, pathname = "" }) {
     const [matches, setMatches] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
-
     const fetchMatches = async (jobInfo) => {
         const response = await fetch('/api/applicant/match', {
             method: 'POST',
