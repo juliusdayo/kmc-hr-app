@@ -20,7 +20,7 @@ const Index = () => {
     const fetchApplicant = async () => {
         const response = await fetch('/api/applicant')
         const data = await response.json()
-        console.log(data)
+
     }
     useEffect(() => {
         fetchApplicant()
@@ -38,16 +38,16 @@ const Index = () => {
 
     return (
         <SidebarProvider className="w-full">
-            <AppSidebar screens={hiringManager} setNav={handleNav} currentNav={nav}/>
+            <AppSidebar screens={hiringManager} setNav={handleNav} currentNav={nav} />
             <main className="w-full">
                 <div className="p-8 w-full space-y-5">
                     <Header>
                         <SidebarTrigger />
                     </Header>
                     <div>
-                        {nav === "JobListings" ? <JobPosting  postings={postings}/> :
-                         nav === "ApplicantRatings" ? <ApplicantPool/>:
-                         nav === "Scheduling" ? <Schedule/>: null }
+                        {nav === "JobListings" ? <JobPosting postings={postings} /> :
+                            nav === "ApplicantRatings" ? <ApplicantPool /> :
+                                nav === "Scheduling" ? <Schedule /> : null}
                     </div>
                 </div>
             </main>

@@ -9,7 +9,7 @@ export async function POST(req, res) {
 
 
     for (let i of data) {
-        console.log(i);
+
         setDoc(doc(db, dbName, uuidv4()), i)
 
     }

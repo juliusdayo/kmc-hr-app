@@ -16,10 +16,10 @@ import {
     HoverCard,
     HoverCardContent,
     HoverCardTrigger,
-  } from "@/components/ui/hover-card"
+} from "@/components/ui/hover-card"
 
 export function Applicant({ applicant }) {
-    console.log(applicant)
+
     const [rating, setRating] = useState(3);
 
     return (
@@ -41,11 +41,11 @@ export function Applicant({ applicant }) {
                 </Card>
             </HoverCardTrigger>
             <HoverCardContent side="right" className="w-[500px] bg-[#1A202C] text-white border-none">
-            <CardTitle >{applicant?.name}</CardTitle>
-            <CardDescription>{applicant?.jobTitle}</CardDescription>
-            <small >Antipolo, Calabarzon Philippines</small>
-            <p className="pt-4 pl-2">{applicant?.reason}</p>
-        </HoverCardContent>
-    </HoverCard>
+                <CardTitle >{applicant?.name}</CardTitle>
+                <CardDescription>{applicant?.jobTitle}</CardDescription>
+                <small >Antipolo, Calabarzon Philippines</small>
+                <p className="pt-4 pl-2">{applicant?.reason}</p>
+            </HoverCardContent>
+        </HoverCard>
     )
 }

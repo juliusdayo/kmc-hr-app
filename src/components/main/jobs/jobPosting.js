@@ -34,7 +34,7 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip"
 
-import {  Search } from 'lucide-react';
+import { Search } from 'lucide-react';
 
 import { ArrowLeft, FileUser, Share } from 'lucide-react';
 import { AddJobModal } from "./addJob"
@@ -48,7 +48,7 @@ import {
 import { Applicant } from "../applicants/applicant"
 import Loader from "../loaders/loader"
 
-export function JobPosting({ postings, setNav = () => {}, pathname = ""}) {
+export function JobPosting({ postings, setNav = () => { }, pathname = "" }) {
     const [currentJob, setCurrentJob] = useState({})
     const [matches, setMatches] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -76,11 +76,15 @@ export function JobPosting({ postings, setNav = () => {}, pathname = ""}) {
         if (postings) {
             setCurrentJob(postings[0])
         }
+
+    }, [postings])
+
+    useEffect(() => {
         if (currentJob) {
             setIsLoading(true)
             fetchMatches(currentJob)
         }
-    }, [postings])
+    }, [currentJob])
 
     return (
         <Dialog>
@@ -92,8 +96,8 @@ export function JobPosting({ postings, setNav = () => {}, pathname = ""}) {
                     </div>
                     <div className="flex gap-4">
                         <div className="flex flex-row items-center justify-center rounded-l-full bg-[#F1F1F1] pl-3 gap-3 border border-input" >
-                        <Search />
-                        <Input type="text" placeholder="Search" className="rounded-none" />
+                            <Search />
+                            <Input type="text" placeholder="Search" className="rounded-none" />
                         </div>
                         {pathname !== "/applicant" && <DialogTrigger asChild>
                             <Button>
@@ -135,14 +139,14 @@ export function JobPosting({ postings, setNav = () => {}, pathname = ""}) {
                                                         </Tooltip>
                                                     </TooltipProvider>
                                                     <TabsList>
-                                                    {pathname !== "/applicant" &&
-                                                        <Button className="text-white bg-[#F99D3A] font-bold">
-                                                            <TabsTrigger value="talents" className="bg-transparent" asChild>
-                                                                <div>
-                                                                    <FileUser />  VIEW TALENTS
-                                                                </div></TabsTrigger>
-                                                        </Button>
-                                                    }
+                                                        {pathname !== "/applicant" &&
+                                                            <Button className="text-white bg-[#F99D3A] font-bold">
+                                                                <TabsTrigger value="talents" className="bg-transparent" asChild>
+                                                                    <div>
+                                                                        <FileUser />  VIEW TALENTS
+                                                                    </div></TabsTrigger>
+                                                            </Button>
+                                                        }
                                                     </TabsList>
                                                 </div>
                                             </CardTitle>
@@ -190,26 +194,26 @@ export function JobPosting({ postings, setNav = () => {}, pathname = ""}) {
                                 </TabsContent>
                                 <TabsContent value="talents" className="p-0 m-0 space-y-0">
                                     <Card>
-                                    {isLoading ? <Loader/> :
-                                        <><CardHeader className="border-b-2">
-                                            <CardTitle className="flex justify-between">
-                                                <TabsList>
-                                                    <Button className="text-white bg-[#F99D3A] font-bold">
-                                                        <TabsTrigger value="description" className="bg-transparent" asChild>
-                                                            <div><ArrowLeft /></div></TabsTrigger>
-                                                    </Button>
-                                                </TabsList>
-                                            </CardTitle>
-                                        </CardHeader>
-                                        <CardContent className="p-7 h-[450px] overflow-auto">
-                                            <div className="grid grid-cols-4 gap-3">
-                                                {Array.isArray(matches) && matches.map((applicant, index) => (
-                                                    <div key={`${applicant.id}${index}`} onClick={() => setNav("ApplicantProfile")}>
-                                                        <Applicant applicant={applicant} />
+                                        {isLoading ? <Loader /> :
+                                            <><CardHeader className="border-b-2">
+                                                <CardTitle className="flex justify-between">
+                                                    <TabsList>
+                                                        <Button className="text-white bg-[#F99D3A] font-bold">
+                                                            <TabsTrigger value="description" className="bg-transparent" asChild>
+                                                                <div><ArrowLeft /></div></TabsTrigger>
+                                                        </Button>
+                                                    </TabsList>
+                                                </CardTitle>
+                                            </CardHeader>
+                                                <CardContent className="p-7 h-[450px] overflow-auto">
+                                                    <div className="grid grid-cols-4 gap-3">
+                                                        {Array.isArray(matches) && matches.map((applicant, index) => (
+                                                            <div key={`${applicant.id}${index}`} onClick={() => setNav("ApplicantProfile")}>
+                                                                <Applicant applicant={applicant} />
+                                                            </div>
+                                                        ))}
                                                     </div>
-                                                ))}
-                                            </div>
-                                        </CardContent></>                                }
+                                                </CardContent></>}
                                     </Card>
 
                                 </TabsContent>
